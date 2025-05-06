@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastal Lodge | Accommodation</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- AOS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .page-hero {
+            background: linear-gradient(rgba(27, 60, 89, 0.8), rgba(27, 60, 89, 0.8)), url('https://via.placeholder.com/1920x600?text=Accommodation+Hero') no-repeat center center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .room-card {
+            perspective: 1000px;
+        }
+        .room-card-inner {
+            position: relative;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .room-card:hover .room-card-inner {
+            transform: rotateY(180deg);
+        }
+        .room-card-front, .room-card-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+        .room-card-front {
+            z-index: 2;
+        }
+        .room-card-back {
+            transform: rotateY(180deg);
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hamburger .line1, .hamburger .line2, .hamburger .line3 {
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active .line2 {
+            opacity: 0;
+        }
+        .hamburger.active .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        nav ul.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: #1b3c59;
+            padding: 20px 0;
+        }
+        @media (min-width: 768px) {
+            nav ul.active {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                background: none;
+                padding: 0;
+            }
+        }
+        /* Fallback for AOS failure */
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[#1b3c59] to-[#4b6cb7] text-white py-6 px-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Coastal Lodge</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-lg hover:text-[#d4af37] transition duration-300">Home</a></li>
+                    <li><a href="about.html" class="text-lg hover:text-[#d4af37] transition duration-300">About</a></li>
+                    <li><a href="accommodation.html" class="text-lg text-[#d4af37] font-semibold">Accommodation</a></li>
+                    <li><a href="location.html" class="text-lg hover:text-[#d4af37] transition duration-300">Location</a></li>
+                    <li><a href="gallery.html" class="text-lg hover:text-[#d4af37] transition duration-300">Gallery</a></li>
+                    <li><a href="restaurant.html" class="text-lg hover:text-[#d4af37] transition duration-300">Restaurant</a></li>
+                    <li><a href="booking.html" class="text-lg bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger md:hidden cursor-pointer">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h2 class="text-5xl md:text-6xl font-bold mb-4">Our Rooms & Suites</h2>
+            <p class="text-xl md:text-2xl">Experience luxury and comfort in our beautifully designed accommodations.</p>
+        </div>
+    </section>
+
+    <!-- Room Categories -->
+    <section class="py-16 bg-[#f5f5f5]">
+        <div class="container mx-auto px-4">
+            <div class="section-title text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-[#1b3c59]">Choose Your Perfect Stay</h2>
+            </div>
+            <div class="category-tabs flex justify-center space-x-4 mb-8" data-aos="fade-up" data-aos-delay="100">
+                <button class="tab-btn active bg-[#1b3c59] text-white px-4 py-2 rounded-full hover:bg-[#4b6cb7] transition duration-300" data-category="all">All</button>
+                <button class="tab-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] hover:text-[#1b3c59] transition duration-300" data-category="suite">Suites</button>
+                <button class="tab-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] hover:text-[#1b3c59] transition duration-300" data-category="cottage">Cottages</button>
+                <button class="tab-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] hover:text-[#1b3c59] transition duration-300" data-category="deluxe">Deluxe Rooms</button>
+            </div>
+            <div class="room-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="room-card" data-type="suite" data-aos="fade-up" data-aos-delay="200">
+                    <div class="room-card-inner">
+                        <div class="room-card-front bg-white shadow-lg rounded-lg overflow-hidden">
+                            <img src="https://via.placeholder.com/300?text=Ocean+View+Suite" alt="Ocean View Suite" class="w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-[#1b3c59] p-4 text-center">Ocean View Suite</h3>
+                        </div>
+                        <div class="room-card-back flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-[#1b3c59] mb-2">Ocean View Suite</h3>
+                                <p class="text-gray-600 mb-4">Spacious suite with private balcony and stunning ocean views.</p>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li><i class="fas fa-bed mr-2"></i> King Bed</li>
+                                    <li><i class="fas fa-bath mr-2"></i> En-suite Bathroom</li>
+                                    <li><i class="fas fa-wifi mr-2"></i> Free Wi-Fi</li>
+                                </ul>
+                            </div>
+                            <div class="flex space-x-2 mt-4">
+                                <a href="booking.html" class="book-room-btn bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
+                                <a href="room-details.html?room=oceanview" class="details-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] transition duration-300">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card" data-type="cottage" data-aos="fade-up" data-aos-delay="300">
+                    <div class="room-card-inner">
+                        <div class="room-card-front bg-white shadow-lg rounded-lg overflow-hidden">
+                            <img src="https://via.placeholder.com/300?text=Family+Cottage" alt="Family Cottage" class="w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-[#1b3c59] p-4 text-center">Family Cottage</h3>
+                        </div>
+                        <div class="room-card-back flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-[#1b3c59] mb-2">Family Cottage</h3>
+                                <p class="text-gray-600 mb-4">Cozy cottage perfect for families, with garden access.</p>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li><i class="fas fa-bed mr-2"></i> 2 Bedrooms</li>
+                                    <li><i class="fas fa-utensils mr-2"></i> Kitchenette</li>
+                                    <li><i class="fas fa-tv mr-2"></i> Smart TV</li>
+                                </ul>
+                            </div>
+                            <div class="flex space-x-2 mt-4">
+                                <a href="booking.html" class="book-room-btn bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
+                                <a href="room-details.html?room=family" class="details-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] transition duration-300">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card" data-type="deluxe" data-aos="fade-up" data-aos-delay="400">
+                    <div class="room-card-inner">
+                        <div class="room-card-front bg-white shadow-lg rounded-lg overflow-hidden">
+                            <img src="https://via.placeholder.com/300?text=Deluxe+Room" alt="Deluxe Room" class="w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-[#1b3c59] p-4 text-center">Deluxe Room</h3>
+                        </div>
+                        <div class="room-card-back flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-[#1b3c59] mb-2">Deluxe Room</h3>
+                                <p class="text-gray-600 mb-4">Elegant room with modern amenities and ocean glimpses.</p>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li><i class="fas fa-bed mr-2"></i> Queen Bed</li>
+                                    <li><i class="fas fa-coffee mr-2"></i> Coffee Maker</li>
+                                    <li><i class="fas fa-wifi mr-2"></i> Free Wi-Fi</li>
+                                </ul>
+                            </div>
+                            <div class="flex space-x-2 mt-4">
+                                <a href="booking.html" class="book-room-btn bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
+                                <a href="room-details.html?room=deluxe" class="details-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] transition duration-300">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card" data-type="suite" data-aos="fade-up" data-aos-delay="500">
+                    <div class="room-card-inner">
+                        <div class="room-card-front bg-white shadow-lg rounded-lg overflow-hidden">
+                            <img src="https://via.placeholder.com/300?text=Premium+Suite" alt="Premium Suite" class="w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-[#1b3c59] p-4 text-center">Premium Suite</h3>
+                        </div>
+                        <div class="room-card-back flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-[#1b3c59] mb-2">Premium Suite</h3>
+                                <p class="text-gray-600 mb-4">Luxurious suite with panoramic views and private lounge.</p>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li><i class="fas fa-bed mr-2"></i> King Bed</li>
+                                    <li><i class="fas fa-bath mr-2"></i> Jacuzzi</li>
+                                    <li><i class="fas fa-concierge-bell mr-2"></i> Butler Service</li>
+                                </ul>
+                            </div>
+                            <div class="flex space-x-2 mt-4">
+                                <a href="booking.html" class="book-room-btn bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
+                                <a href="room-details.html?room=premium" class="details-btn bg-gray-200 text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#d4af37] transition duration-300">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-[#1b3c59] to-[#4b6cb7] text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Book Your Coastal Escape</h2>
+            <p class="text-xl mb-8">Reserve your room today and experience the serenity of Coastal Lodge.</p>
+            <a href="booking.html" class="cta-btn bg-[#d4af37] text-[#1b3c59] px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1b3c59] text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="footer-column">
+                <h3 class="text-2xl font-bold mb-4">Coastal Lodge</h3>
+                <p class="text-gray-300 mb-4">A luxury seaside accommodation offering unforgettable experiences in a breathtaking coastal setting.</p>
+                <div class="social-icons flex space-x-4">
+                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Home</a></li>
+                    <li><a href="about.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">About Us</a></li>
+                    <li><a href="accommodation.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Rooms & Suites</a></li>
+                    <li><a href="location.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Location</a></li>
+                    <li><a href="gallery.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Gallery</a></li>
+                    <li><a href="contact.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+                <p class="text-gray-300 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Coastal Road, Beachside Village</p>
+                <p class="text-gray-300 mb-2"><i class="fas fa-phone mr-2"></i> +27 12 345 6789</p>
+                <p class="text-gray-300 mb-2"><i class="fas fa-envelope mr-2"></i> info@coastallodge.com</p>
+                <p class="text-gray-300"><i class="fas fa-clock mr-2"></i> Reception: 07:00 - 22:00</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="text-2xl font-bold mb-4">Newsletter</h3>
+                <p class="text-gray-300 mb-4">Subscribe to our newsletter for special offers and updates.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your Email Address" class="w-full p-2 rounded-l-md text-gray-800">
+                    <button type="submit" class="bg-[#d4af37] text-[#1b3c59] p-2 rounded-r-md hover:bg-[#e5e5e5] transition duration-300">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-8">
+            <p class="text-gray-300">© 2025 Coastal Lodge. All Rights Reserved. | Designed with SyntaxSyndicates</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="modal-content bg-white p-8 rounded-lg max-w-md w-full">
+            <span class="close-modal text-2xl cursor-pointer float-right">&times;</span>
+            <h2 class="text-3xl font-bold text-[#1b3c59] mb-6">Book Your Stay</h2>
+            <form class="space-y-4">
+                <input type="date" id="check-in" required class="w-full p-2 border rounded-md">
+                <input type="date" id="check-out" required class="w-full p-2 border rounded-md">
+                <select required class="w-full p-2 border rounded-md">
+                    <option value="">Select Room Type</option>
+                    <option value="oceanview">Ocean View Suite</option>
+                    <option value="family">Family Cottage</option>
+                    <option value="deluxe">Deluxe Room</option>
+                    <option value="premium">Premium Suite</option>
+                </select>
+                <button type="submit" class="w-full bg-[#d4af37] text-[#1b3c59] p-2 rounded-md hover:bg-[#e5e5e5] transition duration-300">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

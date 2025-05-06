@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Coastal Lodge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Coastal Lodge</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html" class="active book-btn">Book Now</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Header -->
+    <section class="page-banner" style="background-image: url('images/booking-banner.jpg');" data-aos="fade-up">
+        <div class="banner-content">
+            <h1>Book Your Stay</h1>
+            <p>Reserve your perfect coastal getaway today</p>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-form">
+        <div class="container">
+            <div class="form-wrapper" data-aos="fade-up">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="check-in">Check-In:</label>
+                        <input type="date" id="check-in" value="2025-04-30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-Out:</label>
+                        <input type="date" id="check-out" value="2025-05-01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nights">Nights:</label>
+                        <input type="number" id="nights" value="1" min="1" readonly>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="check-availability-btn">Check Availability</button>
+                        <a href="#" class="view-calendar-btn">View Calendar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Rooms -->
+    <section class="available-rooms">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Available on These Dates</h2>
+            </div>
+            <div class="room-option" data-aos="fade-up" data-aos-delay="100">
+                <div class="room-image">
+                    <img src="images/ocean-view-suite.jpg" alt="Ocean View Suite">
+                </div>
+                <div class="room-details">
+                    <h3>Ocean View Suite</h3>
+                    <p>Spacious suite with private balcony and stunning ocean views. Includes air conditioning, Smart TV with selected channels, and a shared patio with access to the plunge pool.</p>
+                    <a href="#" class="show-more">Show More <i class="fas fa-ellipsis-h"></i></a>
+                </div>
+                <div class="room-pricing">
+                    <div class="price">From R2,150.00 per night for 2 adults</div>
+                    <p>Max Guests: 2 (Max 2 adults)</p>
+                    <p>Children: 0 - 5 years free</p>
+                    <button class="book-room-btn">View Rates and Book</button>
+                </div>
+            </div>
+            <div class="room-option" data-aos="fade-up" data-aos-delay="200">
+                <div class="room-image">
+                    <img src="images/family-cottage.jpg" alt="Family Cottage">
+                </div>
+                <div class="room-details">
+                    <h3>Family Cottage</h3>
+                    <p>Cozy cottage perfect for families, with garden access. Features two bedrooms, a kitchenette, and a Smart TV.</p>
+                    <a href="#" class="show-more">Show More <i class="fas fa-ellipsis-h"></i></a>
+                </div>
+                <div class="room-pricing">
+                    <div class="price">From R3,000.00 per night for 4 adults</div>
+                    <p>Max Guests: 4 (Max 4 adults)</p>
+                    <p>Children: 0 - 5 years free</p>
+                    <button class="book-room-btn">View Rates and Book</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="additional-info">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>About Coastal Lodge</h2>
+            </div>
+            <div class="info-content" data-aos="fade-up" data-aos-delay="100">
+                <p>Coastal Lodge offers luxury seaside accommodation designed by top architects, with panoramic ocean views. Enjoy a serene escape with modern amenities and warm hospitality.</p>
+            </div>
+            <div class="facilities" data-aos="fade-up" data-aos-delay="200">
+                <h3>General Facilities</h3>
+                <ul>
+                    <li>Air Conditioning</li>
+                    <li>Wi-Fi</li>
+                    <li>Plunge Pool</li>
+                    <li>Beach Access</li>
+                    <li>Restaurant</li>
+                    <li>Room Service</li>
+                </ul>
+            </div>
+            <div class="gallery-grid" data-aos="fade-up" data-aos-delay="300">
+                <img src="images/gallery-1.jpg" alt="Gallery Image">
+                <img src="images/gallery-2.jpg" alt="Gallery Image">
+                <img src="images/gallery-3.jpg" alt="Gallery Image">
+                <img src="images/gallery-4.jpg" alt="Gallery Image">
+                <img src="images/gallery-5.jpg" alt="Gallery Image">
+                <img src="images/gallery-6.jpg" alt="Gallery Image">
+            </div>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-phone"></i> Telephone: +27 22 880 0970</p>
+                <p><i class="fas fa-envelope"></i> Email: info@coastallodge.com</p>
+                <p><i class="fas fa-star"></i> Guest Reviews: 4.5/5</p>
+            </div>
+            <div class="reviews" data-aos="fade-up" data-aos-delay="500">
+                <h3>Guest Reviews</h3>
+                <div class="review">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"An unforgettable stay! The ocean views were breathtaking, and the staff were incredibly welcoming. Can't wait to return!"</p>
+                    <p class="reviewer">— Jane D., May 2024</p>
+                </div>
+                <div class="review">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Perfect family getaway. The cottage was spacious and well-equipped, and the kids loved the beach access."</p>
+                    <p class="reviewer">— Mark S., April 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-about">
+                <h3>Coastal Lodge</h3>
+                <p>A luxury seaside accommodation offering unforgettable experiences in a breathtaking coastal setting.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="accommodation.html">Rooms & Suites</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Coastal Road, Beachside Village</p>
+                <p><i class="fas fa-phone"></i> +27 12 345 6789</p>
+                <p><i class="fas fa-envelope"></i> info@coastallodge.com</p>
+                <p><i class="fas fa-clock"></i> Reception: 07:00 - 22:00</p>
+            </div>
+            <div class="footer-column footer-subscribe">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for special offers and updates.</p>
+                <form>
+                    <input type="email" placeholder="Your Email Address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Coastal Lodge. All Rights Reserved. | Designed with SyntaxSyndicates</p>
+        </div>
+    </footer>
+
+    <!-- View Calendar Modal -->
+    <div class="calendar-modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <h2>Availability Calendar</h2>
+            <div class="calendar-placeholder">
+                <p>Calendar functionality to be implemented. This will show available dates for booking.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+</html>
