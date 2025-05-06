@@ -1,16 +1,4 @@
 
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize AOS safely
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    } else {
-        console.warn('AOS library not loaded. Animations disabled.');
-    }
-
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav ul');
