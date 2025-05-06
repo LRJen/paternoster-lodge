@@ -3,101 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coastal Lodge | Luxury Accommodation</title>
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome CDN -->
+    <title>Paternoster</title>
+   
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <!-- AOS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f5f5f5;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-        }
-        .hero {
-            background: linear-gradient(rgba(27, 60, 89, 0.8), rgba(27, 60, 89, 0.8)), url('https://via.placeholder.com/1920x1080?text=Hero+Image') no-repeat center center/cover;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        .cta-btn {
-            transition: all 0.3s ease;
-        }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .hamburger .line1, .hamburger .line2, .hamburger .line3 {
-            width: 30px;
-            height: 3px;
-            background: white;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-        .hamburger.active .line1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        .hamburger.active .line2 {
-            opacity: 0;
-        }
-        .hamburger.active .line3 {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-        nav ul.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: #1b3c59;
-            padding: 20px 0;
-        }
-        @media (min-width: 768px) {
-            nav ul.active {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                background: none;
-                padding: 0;
-            }
-        }
-        /* Fallback for AOS failure */
-        [data-aos] {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: none !important;
-        }
-    </style>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="bg-gradient-to-r from-[#1b3c59] to-[#4b6cb7] text-white py-6 px-4 fixed w-full z-10">
-        <div class="container mx-auto flex justify-between items-center">
+    <header>
+        <div class="header-container">
             <div class="logo">
-                <h1 class="text-3xl font-bold">Coastal Lodge</h1>
+                <h1>Paternoster Lodge</h1>
             </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-lg hover:text-[#d4af37] transition duration-300">Home</a></li>
-                    <li><a href="about.html" class="text-lg hover:text-[#d4af37] transition duration-300">About</a></li>
-                    <li><a href="accommodation.html" class="text-lg hover:text-[#d4af37] transition duration-300">Accommodation</a></li>
-                    <li><a href="location.html" class="text-lg hover:text-[#d4af37] transition duration-300">Location</a></li>
-                    <li><a href="gallery.html" class="text-lg hover:text-[#d4af37] transition duration-300">Gallery</a></li>
-                    <li><a href="restaurant.html" class="text-lg hover:text-[#d4af37] transition duration-300">Restaurant</a></li>
-                    <li><a href="booking.html" class="text-lg bg-[#d4af37] text-[#1b3c59] px-4 py-2 rounded-full hover:bg-[#e5e5e5] transition duration-300">Book Now</a></li>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#accommodation">Accommodation</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact" class="book-btn">Book Now</a></li>
                 </ul>
             </nav>
-            <div class="hamburger md:hidden cursor-pointer">
+            <div class="hamburger">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -106,149 +35,222 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h2 class="text-5xl md:text-6xl font-bold mb-4">Luxury Coastal Retreat</h2>
-            <p class="text-xl md:text-2xl mb-8">Discover tranquility and elegance with stunning ocean views and world-class amenities.</p>
-            <a href="accommodation.html" class="cta-btn bg-[#d4af37] text-[#1b3c59] px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#e5e5e5] transition duration-300">Explore Our Rooms</a>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Paternoster Lodge</h2>
+            <p>Experience the tranquility of coastal living with breathtaking ocean views and world-class amenities.</p>
+            <a href="#accommodation" class="cta-btn">Explore Our Rooms</a>
+        </div>
+        <div class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Featured Content Section -->
-    <section class="py-16 bg-[#f5f5f5]">
-        <div class="container mx-auto px-4">
-            <div class="section-title text-center mb-12" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-[#1b3c59]">Welcome to Coastal Lodge</h2>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title fade-in">
+            <h2>About Us</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h3>A Coastal Haven</h3>
+                <p>Nestled in the heart of a charming fishing village, Paternoster Lodge offers a perfect blend of luxury and authentic coastal experiences. Our lodge has been designed to provide guests with ultimate comfort while preserving the natural beauty and cultural heritage of the region.</p>
+                <p>Each aspect of our lodge reflects our commitment to excellence, from the carefully curated interiors to the locally-inspired cuisine served at our restaurant. Whether you're seeking a peaceful retreat or a base to explore the stunning coastline, Paternoster Lodge provides an unforgettable experience for all our guests.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="featured-item bg-white shadow-lg rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="featured-icon text-[#d4af37] text-4xl mb-4">
-                        <i class="fas fa-bed"></i>
+            <div class="about-image fade-in">
+                <img src="/images/ext table.jpg" alt="Coastal Lodge exterior">
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section class="accommodation" id="accommodation">
+        <div class="section-title fade-in">
+            <h2>Our Accommodation</h2>
+        </div>
+        <div class="rooms-container">
+            <!-- Room 1 -->
+            <div class="room-card fade-in">
+                <div class="room-img" style="background-image: url('images/Ocean\ view\ suite.webp')"></div>
+                <div class="room-details">
+                    <h3>Ocean View Suite</h3>
+                    <p>Luxurious suite with panoramic views of the ocean, offering ultimate comfort and relaxation.</p>
+                    <div class="room-features">
+                        <span><i class="fas fa-user"></i> 2 Guests</span>
+                        <span><i class="fas fa-bed"></i> King Bed</span>
+                        <span><i class="fas fa-bath"></i> En-suite</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-[#1b3c59] mb-2">Luxury Rooms</h3>
-                    <p class="text-gray-600 mb-4">Relax in our elegantly designed rooms and suites with stunning ocean views.</p>
-                    <a href="accommodation.html" class="text-[#d4af37] hover:text-[#1b3c59] transition duration-300">View Rooms</a>
+                    <div class="room-price">
+                        From R 1600 per night
+                    </div>
+                    <a href="#" class="room-btn">View Details</a>
                 </div>
-                <div class="featured-item bg-white shadow-lg rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="featured-icon text-[#d4af37] text-4xl mb-4">
-                        <i class="fas fa-utensils"></i>
+            </div>
+
+            <!-- Room 2 -->
+            <div class="room-card fade-in">
+                <div class="room-img" style="background-image: url('images/family\ cottage.jpg')"></div>
+                <div class="room-details">
+                    <h3>Family Cottage</h3>
+                    <p>Spacious cottage perfect for families, featuring a private patio and comfortable living areas.</p>
+                    <div class="room-features">
+                        <span><i class="fas fa-user"></i> 4 Guests</span>
+                        <span><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                        <span><i class="fas fa-bath"></i> 2 Bathrooms</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-[#1b3c59] mb-2">Fine Dining</h3>
-                    <p class="text-gray-600 mb-4">Savor fresh, locally-inspired cuisine at our beachfront restaurant.</p>
-                    <a href="restaurant.html" class="text-[#d4af37] hover:text-[#1b3c59] transition duration-300">Learn More</a>
+                    <div class="room-price">
+                        From 1000 per night
+                    </div>
+                    <a href="#" class="room-btn">View Details</a>
                 </div>
-                <div class="featured-item bg-white shadow-lg rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="featured-icon text-[#d4af37] text-4xl mb-4">
-                        <i class="fas fa-umbrella-beach"></i>
+            </div>
+
+            <!-- Room 3 -->
+            <div class="room-card fade-in">
+                <div class="room-img" style="background-image: url('images/deluxe\ room.jpg')"></div>
+                <div class="room-details">
+                    <h3>Deluxe Room</h3>
+                    <p>Elegant and cozy room with modern amenities and a sophisticated coastal-inspired design.</p>
+                    <div class="room-features">
+                        <span><i class="fas fa-user"></i> 2 Guests</span>
+                        <span><i class="fas fa-bed"></i> Queen Bed</span>
+                        <span><i class="fas fa-bath"></i> En-suite</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-[#1b3c59] mb-2">Beach Access</h3>
-                    <p class="text-gray-600 mb-4">Enjoy direct access to pristine beaches and a range of water activities.</p>
-                    <a href="location.html" class="text-[#d4af37] hover:text-[#1b3c59] transition duration-300">Explore Activities</a>
+                    <div class="room-price">
+                        From R 1400 per night
+                    </div>
+                    <a href="#" class="room-btn">View Details</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-16 bg-[#e5e5e5]">
-        <div class="container mx-auto px-4">
-            <div class="section-title text-center mb-12" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-[#1b3c59]">Guest Testimonials</h2>
+    <section class="testimonials">
+        <div class="section-title fade-in">
+            <h2>Guest Testimonials</h2>
+        </div>
+        <div class="testimonial-slider fade-in">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide active">
+                <div class="testimonial-content">
+                    <p>"Our stay at Paternoster Lodge exceeded all expectations. The rooms are beautifully appointed, the staff attentive, and the location simply breathtaking. We'll definitely be returning!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/images/3cb4ba00-1d7a-49f6-9696-470f6a323489.JPG" alt="Guest photo">
+                    <h4>Tulani Qwesha</h4>
+                    <p>Cape Town, South Africa</p>
+                </div>
             </div>
-            <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="100">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-content bg-white shadow-lg rounded-lg p-6 mx-auto max-w-2xl">
-                        <p class="text-gray-600 italic mb-4">"An unforgettable stay! The rooms were luxurious, the staff exceptional, and the ocean views breathtaking."</p>
-                        <div class="testimonial-author flex items-center justify-center">
-                            <img src="https://via.placeholder.com/150?text=Guest+1" alt="Guest photo" class="w-16 h-16 rounded-full mr-4">
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#1b3c59]">Sarah & David</h4>
-                                <p class="text-gray-500">Cape Town, South Africa</p>
-                            </div>
-                        </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>"What a hidden gem! The attention to detail in every aspect of this lodge is impressive. From the gourmet breakfast to the sunset views from our private balcony - everything was perfect."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/70/70" alt="Guest photo">
+                    <h4>Caleb Holloway</h4>
+                    <p>Cape Town, South Africa</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>"We came for a weekend getaway and ended up staying an extra two days! The peaceful atmosphere, friendly staff, and beautiful surroundings made it impossible to leave. Highly recommended."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/api/placeholder/70/70" alt="Guest photo">
+                    <h4>Xhanti Mbula</h4>
+                    <p>Cape Town, South Africa</p>
+                </div>
+            </div>
+
+            <!-- Testimonial Navigation -->
+            <div class="testimonial-nav">
+                <span class="testimonial-dot active" data-slide="0"></span>
+                <span class="testimonial-dot" data-slide="1"></span>
+                <span class="testimonial-dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="section-title fade-in">
+            <h2>Our Location</h2>
+        </div>
+        <div class="location-content">
+            <div class="map-container fade-in">
+                <img src="/api/placeholder/600/400" alt="Map location">
+            </div>
+            <div class="location-info fade-in">
+                <h3>Finding Us</h3>
+                <p>Paternoster Lodge is situated in a picturesque fishing village, just a 2-hour drive from the nearest international airport. Our location offers the perfect balance of seclusion and accessibility.</p>
+                <p>The area is known for its pristine beaches, rich marine life, and colorful local culture. Within walking distance, you'll find charming restaurants, art galleries, and opportunities to experience authentic coastal life.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Coastal Road, Beachside Village</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+27 12 345 6789</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@Paternoster.com</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Preview -->
-    <section class="py-16 bg-[#f5f5f5]">
-        <div class="container mx-auto px-4">
-            <div class="section-title text-center mb-12" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-[#1b3c59]">Explore Coastal Lodge</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="lightgallery" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://via.placeholder.com/300?text=Gallery+1" class="gallery-item">
-                    <img src="https://via.placeholder.com/300?text=Gallery+1" alt="Coastal Lodge" class="w-full h-48 object-cover rounded-lg">
-                </a>
-                <a href="https://via.placeholder.com/300?text=Gallery+2" class="gallery-item">
-                    <img src="https://via.placeholder.com/300?text=Gallery+2" alt="Coastal Lodge" class="w-full h-48 object-cover rounded-lg">
-                </a>
-                <a href="https://via.placeholder.com/300?text=Gallery+3" class="gallery-item">
-                    <img src="https://via.placeholder.com/300?text=Gallery+3" alt="Coastal Lodge" class="w-full h-48 object-cover rounded-lg">
-                </a>
-                <a href="https://via.placeholder.com/300?text=Gallery+4" class="gallery-item">
-                    <img src="https://via.placeholder.com/300?text=Gallery+4" alt="Coastal Lodge" class="w-full h-48 object-cover rounded-lg">
-                </a>
-            </div>
-            <div class="gallery-cta text-center mt-8" data-aos="fade-up" data-aos-delay="200">
-                <a href="gallery.html" class="cta-btn bg-[#d4af37] text-[#1b3c59] px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#e5e5e5] transition duration-300">View Full Gallery</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-[#1b3c59] to-[#4b6cb7] text-white">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-4">Plan Your Coastal Escape</h2>
-            <p class="text-xl mb-8">Book your stay and experience the serenity of Coastal Lodge.</p>
-            <a href="booking.html" class="cta-btn bg-[#d4af37] text-[#1b3c59] px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#e5e5e5] transition duration-300">Book Now</a>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-[#1b3c59] text-white py-12">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="footer-column">
-                <h3 class="text-2xl font-bold mb-4">Coastal Lodge</h3>
-                <p class="text-gray-300 mb-4">A luxury seaside accommodation offering unforgettable experiences in a breathtaking coastal setting.</p>
-                <div class="social-icons flex space-x-4">
-                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-[#d4af37] hover:text-white transition duration-300"><i class="fab fa-tripadvisor"></i></a>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column footer-about">
+                <h3>Paternoster Lodge</h3>
+                <p>A luxury seaside accommodation offering unforgettable experiences in a breathtaking coastal setting.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Home</a></li>
-                    <li><a href="about.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">About Us</a></li>
-                    <li><a href="accommodation.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Rooms & Suites</a></li>
-                    <li><a href="location.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Location</a></li>
-                    <li><a href="gallery.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Gallery</a></li>
-                    <li><a href="contact.html" class="text-gray-300 hover:text-[#d4af37] transition duration-300">Contact</a></li>
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#accommodation">Rooms & Suites</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
-                <p class="text-gray-300 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Coastal Road, Beachside Village</p>
-                <p class="text-gray-300 mb-2"><i class="fas fa-phone mr-2"></i> +27 12 345 6789</p>
-                <p class="text-gray-300 mb-2"><i class="fas fa-envelope mr-2"></i> info@coastallodge.com</p>
-                <p class="text-gray-300"><i class="fas fa-clock mr-2"></i> Reception: 07:00 - 22:00</p>
+            <div class="footer-column footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Coastal Road, Beachside Village</p>
+                <p><i class="fas fa-phone"></i> +27 76 9554 084</p>
+                <p><i class="fas fa-envelope"></i> info@Paternoster.com</p>
+                
+                <p><i class="fas fa-clock"></i> Reception: 07:00 - 22:00</p>
             </div>
-            <div class="footer-column">
-                <h3 class="text-2xl font-bold mb-4">Newsletter</h3>
-                <p class="text-gray-300 mb-4">Subscribe to our newsletter for special offers and updates.</p>
-                <div class="flex">
-                    <input type="email" placeholder="Your Email Address" class="w-full p-2 rounded-l-md text-gray-800">
-                    <button type="submit" class="bg-[#d4af37] text-[#1b3c59] p-2 rounded-r-md hover:bg-[#e5e5e5] transition duration-300">Subscribe</button>
-                </div>
+            <div class="footer-column footer-subscribe">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for special offers and updates.</p>
+                <form>
+                    <input type="email" placeholder="Your Email Address">
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </div>
-        <div class="footer-bottom text-center mt-8">
-            <p class="text-gray-300">© 2025 Coastal Lodge. All Rights Reserved. | Designed with SyntaxSyndicates</p>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Paternoster Lodge. All Rights Reserved. | Designed by Syntax Syndicate</p>
         </div>
     </footer>
 
@@ -273,8 +275,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/lightgallery.min.js"></script>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
