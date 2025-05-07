@@ -1,8 +1,3 @@
-// Initialize Supabase Client
-const supabase = Supabase.createClient(
-    'https://zrqkkupyzfkbxlzhpaac.supabase.co', // Your Supabase Project URL
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpycWtrdXB5emZrYnhsemhwYWFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY1MjI0NDAsImV4cCI6MjA2MjA5ODQ0MH0.AdU-rmIzvXZ__pFHEvqwQji61VCkuUcWI_ckxIPiZGg' // Your Supabase anon key
-);
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
